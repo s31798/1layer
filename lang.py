@@ -22,8 +22,6 @@ x,y = load_data_from_file("lang.train.csv")
 print(x[0])
 
 
-
-
 def classification_report(y_true, y_pred):
     TP,FP,FN,TN = 0,0,0,0
     for i in range(len(y_true)):
@@ -51,3 +49,25 @@ def f_score(y_true, y_pred):
 y_true = [0,1,0,1,1,1,0]
 y_pred = [0,1,1,1,1,0,0]
 print(f_score(y_true, y_pred))
+
+def vectorize(str):
+    vec = [0.0 for _ in range(26)]
+    for i in range(len(str)):
+        letter = ord(str[i].upper()) - ord('A')
+        if 0 <= letter < 26:
+            vec[letter] += 1
+    return vec
+
+
+print(vectorize("ABBEEabbeeZ"))
+
+
+
+
+
+
+
+
+
+
+
